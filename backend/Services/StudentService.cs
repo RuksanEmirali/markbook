@@ -1,4 +1,5 @@
 using Markbook.Models;
+using Markbook.Models.Request;
 using Markbook.Models.Response;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ public interface IStudentService
 {
     public StudentResponse GetAllStudents();
     public StudentResponse GetBySurname(string surname);
+    public StudentResponse SearchStudent(SearchStudentRequest search);
 }
 
 public class StudentService : IStudentService
@@ -42,5 +44,26 @@ public class StudentService : IStudentService
         }
     }
 
+    public StudentResponse SearchStudent(SearchStudentRequest search)
+    {
+        List<Student> students = _context.Students
+                                .Where(s => search.Id == null || s.Id == search.Id)
+                                .Where(s => search.Forename == null || s.Forename == search.Forename)
+                                .Where(s => search.Surname == null || s.Surname == search.Surname)
+                                .Where(s => search.Gender == null || s.Gender == search.Gender)
+                                .Where(s => search.House == null || s.House == search.House)
+                                .Where(s => search.Year == null || s.Year == search.Year)
+                                .ToList();
+        if (students.Count() != 0)
+        {
+            StudentResponse studentResponse = new StudentResponse();
+            studentResponse.SetList(students);
+            return studentResponse;
+        }
+        else
+        {
+            return null;
+        }        
+    }
     
 }

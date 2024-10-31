@@ -1,3 +1,4 @@
+using Markbook.Models.Request;
 using Markbook.Models.Response;
 using Markbook.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -48,5 +49,28 @@ namespace Markbook.Controllers
                 return BadRequest($"Student with surname {surname} doesn't exist");
             }
         }
+
+        [HttpGetAttribute("/search")]
+        public ActionResult SearchStudent([FromQuery] SearchStudentRequest search)
+        {
+            try
+            {
+                StudentResponse studentResponse = _service.SearchStudent(search);
+                if (studentResponse != null)
+                {
+                return Ok(studentResponse);
+                }
+                else
+                {
+                    return BadRequest("Student does not exist");
+                }
+            }
+            catch
+            {
+                return BadRequest("Student does not exist");
+            }
+        }
     }
+
+    
 }
