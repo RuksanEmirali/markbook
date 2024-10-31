@@ -37,11 +37,11 @@ public class Program
 
         if (app.Environment.IsDevelopment())
         {
-            // using (var scope = app.Services.CreateScope())
-            // {
-            //     var studentSeeder = scope.ServiceProvider.GetService<SeedStudents>();
-            //     studentSeeder.SeedStudent();
-            // }
+            using (var scope = app.Services.CreateScope())
+            {
+                var studentSeeder = scope.ServiceProvider.GetService<SeedStudents>();
+                studentSeeder.SeedStudent();
+            }
             app.UseSwagger();
             app.UseSwaggerUI();
         }
