@@ -27,5 +27,26 @@ namespace Markbook.Controllers
                 return BadRequest("List of students not found");
             }
         }
+
+        [HttpGetAttribute("/{surname}")]
+        public ActionResult GetBySurname([FromRoute] string surname)
+        {
+            try
+            {
+                StudentResponse studentResponse = _service.GetBySurname(surname);
+                if (studentResponse != null)
+                {
+                return Ok(studentResponse);
+                }
+                else
+                {
+                    return BadRequest($"Student with surname {surname} doesn't exist");
+                }
+            }
+            catch
+            {
+                return BadRequest($"Student with surname {surname} doesn't exist");
+            }
+        }
     }
 }
