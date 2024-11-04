@@ -4,16 +4,19 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Pages/Home/Home'
 import Students from './Pages/Students/Students'
+import Header from './Header/Header';
 
 
 function App() {
   return (
     <BrowserRouter>
+    <Header/>
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/' element={<Students/>} />
       </Routes>
     </BrowserRouter>
+
   );
 }
 
