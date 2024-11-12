@@ -17,5 +17,6 @@ export async function getStudents() {
         headers: {
             "Content-Type": "application/json"
         },
+        mode: "no-cors"
     })
 }

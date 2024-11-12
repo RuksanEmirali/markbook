@@ -47,8 +47,7 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-        app.MapControllers();
-
+        app.MapControllers();   
         app.Run();
     }
 }

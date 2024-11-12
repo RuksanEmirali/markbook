@@ -24,16 +24,16 @@ function Students(): JSX.Element {
 
     return (
         <li className="student-list">
-        {Students.map((student) => (
-           <div className="student-detail">
-           Id: {student.id}
-           Forename: {student.forename}
-           Surname:{student.surname}
-           Gender: {student.gender}
-           House: {student.house}
-           Year: {student.year}
-           </div> 
-        ))}
+            {Students.map((student) => (
+            <div className="student-detail">
+                Id: {student.id}
+                Forename: {student.forename}
+                Surname:{student.surname}
+                Gender: {student.gender}
+                House: {student.house}
+                Year: {student.year}
+            </div> 
+            ))}
         </li>
     )
 }
