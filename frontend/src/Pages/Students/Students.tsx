@@ -12,7 +12,7 @@ function Students(): JSX.Element {
                 if (!response.ok){
                     throw new Error("Network response failed")
                 }
-                const result = await response.json()
+                const result = await response.json();
                 setStudents(result.students)
             } catch (error) {
                 console.error("Error in fetching students:", error)

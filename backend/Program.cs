@@ -11,6 +11,14 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(policy =>
+            {
+                policy.WithOrigins(builder.Configuration["Cors:Frontend"]!).AllowAnyMethod().AllowAnyHeader();
+            });
+        });
+
         builder
             .Services.AddControllers()
             .AddJsonOptions(options =>
@@ -45,7 +53,7 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
+        app.UseCors();
         app.UseHttpsRedirection();
         app.MapControllers();   
         app.Run();

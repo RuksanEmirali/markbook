@@ -13,10 +13,7 @@ export interface Students {
 
 export async function getStudents() {
     return await fetch(`http://localhost:5006/student`, {
-        method: "get",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        mode: "no-cors"
+        method: "GET",
+        headers: {"Content-Type": "application/json"}
     })
 }
