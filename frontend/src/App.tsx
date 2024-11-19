@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Pages/Home/Home'
 import Students from './Pages/Students/Students'
 import Header from './Header/Header';
+import { SearchStudents } from './Pages/SearchStudents/SearchStudents';
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/students' element={<Students/>} />
+        <Route path='/students/search' element={<SearchStudents/>} />
+
       </Routes>
     </BrowserRouter>
 
