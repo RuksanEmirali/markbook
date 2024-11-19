@@ -5,9 +5,9 @@ export function SearchStudents(): JSX.Element {
     const [id, setId] = useState("")
     const [forename, setForename] = useState("")
     const [surname, setSurname] = useState("")
-    const [year, setYear] = useState(0)
-    const [house, setHouse] = useState(0)
-    const [gender, setGender] = useState(0)
+    const [year, setYear] = useState(-1)
+    const [house, setHouse] = useState(-1)
+    const [gender, setGender] = useState(-1)
     const [studentList, setStudentList] = useState<Student[]>([])
 
     async function search(event: FormEvent) {

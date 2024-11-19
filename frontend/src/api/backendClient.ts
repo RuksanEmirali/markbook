@@ -36,13 +36,13 @@ export async function searchStudents(
     if (surname?.length !=0){
         query += `&Surname=${surname}`
     }
-    if (year !=0){
+    if (year!=-1){
         query += `&Year=${year}`
     }
-    if (house != 0) {
+    if (house!=-1) {
         query += `&House=${house}`
     }
-    if (gender !=0){
+    if (gender!=-1){
         query += `&Gender=${gender}`
     }
     // Id=${id}&Forename=${forename}&Surname=${surname}&Year=${year}&House=${house}&Gender=${gender}`
