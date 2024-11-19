@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react"
+import { searchStudents, Student } from "../../api/backendClient"
 
 export function SearchStudents(): JSX.Element {
     const [id, setId] = useState("")
@@ -7,11 +8,36 @@ export function SearchStudents(): JSX.Element {
     const [year, setYear] = useState("")
     const [house, setHouse] = useState("")
     const [gender, setGender] = useState("")
+    const [studentList, setStudentList] = useState<Student[]>([])
+
+    async function search(event: FormEvent) {
+        event.preventDefault()
+
+        try {
+            const response = await searchStudents(
+                id,
+                forename,
+                surname,
+                year,
+                gender,
+                house
+            )
+
+            if (!response.ok) {
+                throw new Error("Error searching student")
+            } else {
+                const result = await response.json();
+                setStudentList(result.students)
+            }
+        } catch (err) {
+            console.error("Error searching student")
+        }
+    }
 
     return (
         <div>
             <h1 className="title">Search a Student</h1>
-            <form>
+            <form className="search students" method="get" onSubmit={search}>
                 <div>
                     <label>
                         Id:
@@ -22,7 +48,7 @@ export function SearchStudents(): JSX.Element {
                         type="text"
                         id="id"
                         className="form-control"
-                    onChange={(event) => setId(event.target.value)}
+                        onChange={(event) => setId(event.target.value)}
                     />
                 </div>
 
@@ -36,7 +62,7 @@ export function SearchStudents(): JSX.Element {
                         type="text"
                         id="forename"
                         className="form-control"
-                    onChange={(event) => setForename(event.target.value)}
+                        onChange={(event) => setForename(event.target.value)}
                     />
                 </div>
 
@@ -50,7 +76,7 @@ export function SearchStudents(): JSX.Element {
                         type="text"
                         id="surname"
                         className="form-control"
-                    onChange={(event) => setSurname(event.target.value)}
+                        onChange={(event) => setSurname(event.target.value)}
                     />
                 </div>
 
@@ -64,7 +90,7 @@ export function SearchStudents(): JSX.Element {
                         type="text"
                         id="year"
                         className="form-control"
-                    onChange={(event) => setYear(event.target.value)}
+                        onChange={(event) => setYear(event.target.value)}
                     />
                 </div>
 
@@ -78,7 +104,7 @@ export function SearchStudents(): JSX.Element {
                         type="text"
                         id="house"
                         className="form-control"
-                    onChange={(event) => setHouse(event.target.value)}
+                        onChange={(event) => setHouse(event.target.value)}
                     />
                 </div>
 
@@ -92,13 +118,25 @@ export function SearchStudents(): JSX.Element {
                         type="text"
                         id="gender"
                         className="form-control"
-                    onChange={(event) => setGender(event.target.value)}
+                        onChange={(event) => setGender(event.target.value)}
                     />
                 </div>
                 <button type="submit">
                     Submit
                 </button>
             </form>
+            <li className="student-list">
+                {studentList.map((student) => (
+                    <div className="student-detail">
+                        Id: {student.id}
+                        Forename: {student.forename}
+                        Surname:{student.surname}
+                        Gender: {student.gender}
+                        House: {student.house}
+                        Year: {student.year}
+                    </div>
+                ))}
+            </li>
         </div>
     )
 }
