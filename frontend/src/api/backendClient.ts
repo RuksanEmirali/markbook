@@ -22,9 +22,9 @@ export async function searchStudents(
     id: string,
     forname: string,
     surname: string,
-    year: string,
-    house: string,
-    gender: string
+    year: number,
+    house: number,
+    gender: number
 ) {
     return await fetch(`http://localhost:5006/search`, {
         method: "GET",

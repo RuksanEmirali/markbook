@@ -5,9 +5,9 @@ export function SearchStudents(): JSX.Element {
     const [id, setId] = useState("")
     const [forename, setForename] = useState("")
     const [surname, setSurname] = useState("")
-    const [year, setYear] = useState("")
-    const [house, setHouse] = useState("")
-    const [gender, setGender] = useState("")
+    const [year, setYear] = useState(0)
+    const [house, setHouse] = useState(0)
+    const [gender, setGender] = useState(0)
     const [studentList, setStudentList] = useState<Student[]>([])
 
     async function search(event: FormEvent) {
@@ -86,12 +86,17 @@ export function SearchStudents(): JSX.Element {
                     </label>
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        id="year"
-                        className="form-control"
-                        onChange={(event) => setYear(event.target.value)}
-                    />
+                    <select
+                    id="year"
+                    className="form-control"
+                    onChange={(event)=> setYear(event.target.selectedIndex)}
+                    >
+                      <option>Fourth Form</option>
+                      <option>Remove</option>
+                      <option>Fifth Form</option>
+                      <option>Lower Sixth</option>
+                      <option>Upper Sixth</option>
+                    </select>
                 </div>
 
                 <div>
@@ -100,12 +105,16 @@ export function SearchStudents(): JSX.Element {
                     </label>
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        id="house"
-                        className="form-control"
-                        onChange={(event) => setHouse(event.target.value)}
-                    />
+                <select
+                    id="house"
+                    className="form-control"
+                    onChange={(event)=> setHouse(event.target.selectedIndex)}
+                    >
+                      <option>Attkinson</option>
+                      <option>Cedars</option>
+                      <option>Collinson</option>
+                      <option>School</option>
+                    </select>
                 </div>
 
                 <div>
@@ -114,12 +123,15 @@ export function SearchStudents(): JSX.Element {
                     </label>
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        id="gender"
-                        className="form-control"
-                        onChange={(event) => setGender(event.target.value)}
-                    />
+                <select
+                    id="gender"
+                    className="form-control"
+                    onChange={(event)=> setGender(event.target.selectedIndex)}
+                    >
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>Non-Binary</option>
+                    </select>
                 </div>
                 <button type="submit">
                     Submit
