@@ -5,22 +5,22 @@ import { getStudents, Student } from "../../api/backendClient"
 function Students(): JSX.Element {
     const [Students, setStudents] = useState<Student[]>([])
 
-    useEffect(() => {
-        async function fetchStudents() {
-            try {
-                const response = await getStudents()
-                if (!response.ok){
-                    throw new Error("Network response failed")
-                }
-                const result = await response.json();
-                setStudents(result.students)
-            } catch (error) {
-                console.error("Error in fetching students:", error)
+    async function fetchStudents() {
+        try {
+            const response = await getStudents()
+            if (!response.ok){
+                throw new Error("Network response failed")
             }
+            const result = await response.json();
+            setStudents(result.students)
+        } catch (error) {
+            console.error("Error in fetching students:", error)
         }
+    }
 
+    if (Students.length==0) {
         fetchStudents()
-    })
+    };
 
     return (
         <li className="student-list">
