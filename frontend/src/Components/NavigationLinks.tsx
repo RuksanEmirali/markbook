@@ -10,8 +10,13 @@ const NavigationLinks: React.FC = () => {
       </li>
       <li className="nav-item">
         <Link to="/students" className="nav-link">
-          Students
+          Student List
         </Link>
+        <li className="nav-item">
+          <Link to="/students/search" className="nav-link">
+            Search Students
+          </Link>
+        </li>
       </li>
     </ul>
   )
