@@ -4,7 +4,7 @@ import { Nav } from "react-bootstrap"
 import { Navbar } from "react-bootstrap"
 import { NavDropdown } from "react-bootstrap"
 
-const NavigationLinks: React.FC = () => {
+const NavigationBar: React.FC = () => {
   return (
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -29,4 +29,4 @@ const NavigationLinks: React.FC = () => {
   )
 }
 
-export default NavigationLinks
+export default NavigationBar

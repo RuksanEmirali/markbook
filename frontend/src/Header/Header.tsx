@@ -1,6 +1,6 @@
 import "./Header.scss"
 import { Link } from "react-router-dom"
-import NavigationLinks from "../Components/NavigationLinks"
+import NavigationBar from "../Components/NavigationBar"
 
 const Header: React.FC = () => {
     const logo = require("../images/Logo.png")
@@ -13,7 +13,7 @@ const Header: React.FC = () => {
               <Link to="/" className="navbar-brand">
                 <img src={logo} alt="Markbook Logo" width="200" />
               </Link>
-              <NavigationLinks/>
+              <NavigationBar/>
             </div>
           </div>
         </nav>
