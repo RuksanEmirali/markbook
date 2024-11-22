@@ -10,13 +10,6 @@ const Home: React.FC = () => {
                 <div className="logo">
                     <img src={logo} alt="School building image"/>
                 </div>
-                <div className="top-buttons">
-                    <Link to="students">
-                    <button id="submit-button" data-testid="submit-button" className="btn btn-primary btn-lg custom-button">
-                        Students
-                    </button>
-                    </Link>
-                </div>
             </div>
         </>
     )
