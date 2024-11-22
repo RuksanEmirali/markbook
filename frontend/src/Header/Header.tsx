@@ -6,7 +6,7 @@ const Header: React.FC = () => {
     const logo = require("../images/Logo.png")
   
     return (
-      <div className="show-header">
+      <div className="header">
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
               <NavigationBar/>
