@@ -9,12 +9,7 @@ const Header: React.FC = () => {
       <div className="show-header">
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
-            <div className="navbar-header">
-              <Link to="/" className="navbar-brand">
-                <img src={logo} alt="Markbook Logo" width="200" />
-              </Link>
               <NavigationBar/>
-            </div>
           </div>
         </nav>
       </div>
