@@ -32,6 +32,6 @@ namespace Markbook.Models
         public Gender Gender { get; set; }
         public House House { get; set; }
         public Year Year { get; set; }
-        // public List<Assessment>? Assessments { get; set; }
+        public List<Assessment>? Assessments { get; set; }
     }
 }
