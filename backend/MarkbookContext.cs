@@ -8,6 +8,8 @@ public class MarkbookContext : DbContext
     public MarkbookContext(DbContextOptions<MarkbookContext> options) : base(options) { }
 
     public DbSet<Student> Students { get; set; }
+    public DbSet<Assessment> Assessments { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

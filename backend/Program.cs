@@ -27,6 +27,8 @@ public class Program
             });
 
         builder.Services.AddTransient<IStudentService, StudentService>();
+        builder.Services.AddTransient<IAssessmentService, AssessmentService>();
+
 
         builder.Services.AddDbContext<MarkbookContext>(options =>
         {

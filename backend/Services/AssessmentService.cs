@@ -7,7 +7,7 @@ namespace Markbook.Services;
 
 public interface IAssessmentService
 {
-    public StudentResponse GetAllAssessments();
+    public AssessmentResponse GetAllAssessments();
 
 }
 
@@ -20,9 +20,10 @@ public class AssessmentService : IAssessmentService
         _context = context;
     }
 
-    public StudentResponse GetAllAssessments()
+    public AssessmentResponse GetAllAssessments()
     {
-        return null;
+        AssessmentResponse assessmentResponse = new AssessmentResponse() {Assessments = _context.Assessments.ToList()};
+        return assessmentResponse;
     }
     
 }

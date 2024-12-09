@@ -1,4 +1,5 @@
 using Markbook.Models;
+using Markbook.Models.Response;
 using Markbook.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,14 +20,13 @@ namespace Markbook.Controllers
         {
             try
             {
-                // StudentResponse studentResponse = _service.GetAllStudents();
-                // return Ok(studentResponse);
-                return Ok();
+                AssessmentResponse assessmentResponse = _service.GetAllAssessments();
+                return Ok(assessmentResponse);
 
             }
             catch
             {
-                return BadRequest("List of students not found");
+                return BadRequest("List of assessments not found");
             }
         }
     }
