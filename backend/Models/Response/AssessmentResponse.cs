@@ -13,7 +13,8 @@ namespace Markbook.Models.Response
                 {
                     Id = assessment.Id,
                     TestName = assessment.TestName,
-                    Year = assessment.Year,
+                    StudentId = assessment.StudentId,
+                    Student = assessment.Student,
                     Type = assessment.Type,
                     MarksAvailable = assessment.MarksAvailable,
                     MarksAchieved = assessment.MarksAchieved,

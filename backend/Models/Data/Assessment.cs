@@ -12,7 +12,8 @@ namespace Markbook.Models
     {
         public int Id { get; set; }
         public string? TestName { get; set; }
-        public Year Year { get; set; }
+        public int StudentId {get; set;}
+        public Student Student { get; set; }
         public AssessmentType Type { get; set; }
         public int MarksAvailable { get; set; }
         public int MarksAchieved { get; set; }
